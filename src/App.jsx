@@ -1,15 +1,14 @@
 import "./styles/App.css"
 import React, { useState, useEffect } from "react";
+import localForage from 'localforage'
 import getFormattedDate from './helpers/getFormattedDate';
 import AddNewNoteForm from './components/AddNewNoteForm';
 import CreatedNoteItem from './components/CreatedNoteItem';
 import EditNoteModal from './components/EditNoteModal';
 
-
 export default function App() {
   
   const [date, setDate] = useState(getFormattedDate());
-
 
   const [notesList, setNotesList] = useState([{
       title: "Hello",
@@ -26,22 +25,40 @@ export default function App() {
       setDate(getFormattedDate());
     }, []);
 
+  useEffect(() => {
+      localForage.getItem('notes').then((storedNotes) => {
+        if (storedNotes) {
+          setNotesList(storedNotes);
+        }
+      });
+    }, []);
+
     function updateNotesList(note) {
       setNotesList((tasks) => {
-        return [note, ...tasks].filter(
-          (item, key, array) => 
-          array.indexOf(item) === key
+        const updatedNotes = [note, ...tasks].filter(
+          (item, key, array) => array.indexOf(item) === key
         );
+        localForage.setItem('notes', updatedNotes);
+        return updatedNotes;
       });
     }
   
     function deleteNote(id) {
       setNotesList((prevNotes) => {
-        return prevNotes.filter((_, index) => index !== id);
+        const updatedNotes = prevNotes.filter((_, index) => index !== id);
+      
+        localForage.setItem('notes', updatedNotes);
+        return updatedNotes;
       });
     }
-  
 
+    function expandNote(id, title, content, date) {
+      setModalShow(true);
+      setModalTitle(title);
+      setModalContent(content);
+      setModalId(id);
+      setModalDate(date);
+    }
 
     function saveNote(id, e) {
       const { innerText } = e.target;
@@ -58,14 +75,6 @@ export default function App() {
       });
     }
     
-    function expandNote(id, title, content, date) {
-        setModalShow(true);
-        setModalTitle(title);
-        setModalContent(content);
-        setModalId(id);
-        setModalDate(getFormattedDate());
-    }
-
       return ( 
         <div 
         className="notes-wrapper">
@@ -73,7 +82,7 @@ export default function App() {
             handleSubmit={updateNotesList} 
             />
                 <div className="notes-grid">
-                  <EditNoteModal
+                    <EditNoteModal
                     title={modalTitle}
                     content={modalContent}
                     date={modalDate}
@@ -81,9 +90,24 @@ export default function App() {
                     show={modalShow}
                     setModalShow={setModalShow}
                     onHide={() => setModalShow(false)}
-                    saveNote={saveNote}
+                    saveNote={(id, e) => {
+                      const { innerText } = e.target;
+                      setNotesList((tasks) => {
+                        const updatedNotes = tasks.map((note, key) => {
+                          if (key === id) {
+                            note = {
+                              ...note,
+                              [e.target.getAttribute('data-name')]: innerText,
+                            };
+                          }
+                          return note;
+                        });
+                        localForage.setItem('notes', updatedNotes);
+                        return updatedNotes;
+                      });
+                    }}
                     setModalDate={setModalDate}
-                    />
+                  />
                         <div>
                         {notesList.map((note, key) => {
                             return (
