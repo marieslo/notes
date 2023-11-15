@@ -1,0 +1,89 @@
+.modal{
+    background-color: rgba(211, 246, 122, 0.872);
+    border: none;
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    color:#424242;
+    margin: auto;
+    margin-top: -520px;
+    box-shadow:  5px 5px 5px rgb(82, 127, 143);
+    padding: 10px;
+    margin: 100 0 0 1000px;
+    display: grid;
+    justify-content: center;
+    position: sticky;
+}
+
+.modal-title{
+    outline: 2px solid #dbedb9;
+    height: 80px;
+    width: 380px;
+    padding: 10px;
+    border-radius: 20px;
+    color: #676565;
+    font-size: 20px;
+    text-align: center;
+}
+
+.modal-title:hover {
+    text-decoration: line-through;
+    cursor: pointer;
+}
+
+.modal-body{
+    outline: 2px solid #dbedb9;
+    height: 80px;
+    width: 240px;
+    margin-bottom: 10px;
+    padding: 5rem;
+    border-radius: 20px;
+    color: #676565;
+    overflow: scroll;
+    font-size: 20px;
+    text-align: center;
+}
+
+.modal-body p:hover {
+    text-decoration: line-through;
+    cursor: pointer;
+}
+
+.modal-close-button{
+ border: solid #eafdc7;
+ background-color:   rgba(211, 246, 122, 0.872);
+ border-radius: 20px;
+ font-size: 30px;
+ font-family: 'Gochi Hand', cursive;
+ line-height: 1.5;
+ color: #676565;
+ font-size: 20px;
+ margin-left: 40px;
+}
+
+.modal-close-button:hover {
+    transform: translateY(5px);
+    cursor: pointer;
+}
+
+.btn-close{
+    display: none;
+}
+
+.modal-edit-button{
+    border: solid #eafdc7;
+    background-color:   rgba(211, 246, 122, 0.872);
+    border-radius: 20px;
+    font-size: 30px;
+    font-family: 'Gochi Hand', cursive;
+    line-height: 1.5;
+    color: #676565;
+    font-size: 20px;
+    margin-left: 260px;
+    position: absolute;
+   }
+   
+.modal-edit-button:hover {
+    transform: translateY(5px);
+    cursor: pointer;
+   }

@@ -1,0 +1,88 @@
+@media (max-width: 600px) {
+    .new-note {
+      margin-left: 0;
+    }
+
+    .add-note-btn{
+        margin-left: 0;
+      }
+  }
+
+.new-note{
+    position: fixed;
+    }
+
+.note-form {
+    margin-left: 30px;
+    margin-top: 20px;
+    padding-left: 15px;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    box-shadow:  5px 5px 5px rgb(82, 127, 143);
+    background-color: #ffed64;
+    border-color: #ffed64;  
+    margin-bottom: 10px;
+    border-radius: 20px;
+  }
+    
+.add-note-btn {
+    margin-left: 180px;
+    margin-top: -30px;
+    display: flex;
+    position: fixed;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: 'Gochi Hand', cursive;
+    font-size: 14px;
+    color:antiquewhite;
+    background-color: #fd3838;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    box-shadow: 5px 5px rgb(143, 82, 82);
+    }
+
+.add-note-btn:hover {
+    color: #ffed64;
+    transform: translateY(5px);
+    box-shadow: inset 0px 10px 20px 2px rgba(83, 3, 3, 0.25);
+    }
+
+input{
+    padding-left: 30px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    width: 200px;
+    margin-left: -15px;
+    position: fixed;
+    font-family: 'Gochi Hand', cursive;
+    font-weight: 400;
+    font-size: 16px;
+    color:#424242;
+    background-color: #ffed64;
+    border: none;
+    outline: none !important;
+    margin-top: -28px;
+    border-radius: 20px 20px 0 0;
+    }
+        
+textarea{
+    width: 200px !important;
+    height: 190px !important;
+    position: relative;
+    padding: 10px;
+    font-family: 'Gochi Hand', cursive;
+    font-weight: 400;
+    font-size: 16px;
+    color:#424242;
+    background-color: #ffed64;
+    border-color: #ffed64;
+    outline: none !important;
+    min-width: 200px;
+    max-height: 160px;
+    overflow: hidden;
+    border-radius: 0 0 20px 20px;
+    }
