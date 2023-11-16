@@ -27,11 +27,14 @@
   margin: 5px 30px 10px 30px;
   width: 180px !important;
   text-wrap: wrap;
+  overflow: hidden;
   }
 
-.textarea-content-note-item p{
-    overflow: clip;
-    text-wrap: wrap;
+  textarea-content-note-item p {
+    overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+    margin: 0; 
   }
 
 .delete-note-btn{

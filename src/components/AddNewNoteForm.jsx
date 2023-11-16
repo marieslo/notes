@@ -52,7 +52,7 @@ export default function AddNewNoteForm (props) {
           onChange={handleInput}
           name="content"
           placeholder="My new note... "
-          maxLength="20"
+          maxLength="28"
           value={note.content || ""}
         />
           <button 

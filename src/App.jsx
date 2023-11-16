@@ -15,11 +15,11 @@ export default function App() {
       content: "What a beautiful day!",
       date: getFormattedDate(),
 }])
-    const [modalShow, setModalShow] = useState(false);
+    const [modalShow, setmodalshow] = useState(false);
     const [modalTitle, setModalTitle] = useState("");
     const [modalContent, setModalContent] = useState("");
     const [modalId, setModalId] = useState();
-    const [modalDate, setModalDate] = useState(getFormattedDate());
+    const [modalDate, setmodaldate] = useState(getFormattedDate());
 
   useEffect(() => {
       setDate(getFormattedDate());
@@ -53,14 +53,14 @@ export default function App() {
     }
 
     function expandNote(id, title, content, date) {
-      setModalShow(true);
+      setmodalshow(true);
       setModalTitle(title);
       setModalContent(content);
       setModalId(id);
-      setModalDate(date);
+      setmodaldate(date);
     }
 
-    function saveNote(id, e) {
+    function savenote(id, e) {
       const { innerText } = e.target;
       setNotesList((tasks) => {
         return tasks.map((note, key) => {
@@ -88,9 +88,9 @@ export default function App() {
                     date={modalDate}
                     id={modalId}
                     show={modalShow}
-                    setModalShow={setModalShow}
-                    onHide={() => setModalShow(false)}
-                    saveNote={(id, e) => {
+                    setmodalshow={setmodalshow}
+                    onHide={() => setmodalshow(false)}
+                    savenote={(id, e) => {
                       const { innerText } = e.target;
                       setNotesList((tasks) => {
                         const updatedNotes = tasks.map((note, key) => {
@@ -106,7 +106,7 @@ export default function App() {
                         return updatedNotes;
                       });
                     }}
-                    setModalDate={setModalDate}
+                    setmodaldate={setmodaldate}
                   />
                         <div>
                         {notesList.map((note, key) => {

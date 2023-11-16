@@ -29,7 +29,7 @@ export default function EditNoteModal(props) {
           maxLength="20"
           value={props.title}
           onBlur={(e) => {
-            props.saveNote(props.id, e);
+            props.savenote(props.id, e);
           }}
         
         >
@@ -42,11 +42,11 @@ export default function EditNoteModal(props) {
       <p
         className="textarea-content"
         data-name="content"
-        maxLength="20"
+        maxLength="28"
         value={props.content}
         contentEditable={isEditable}
         onBlur={(e) => {
-          props.saveNote(props.id, e);
+          props.savenote(props.id, e);
         }}
       >
         {props.content};
@@ -65,7 +65,7 @@ export default function EditNoteModal(props) {
         className="modal-close-button"
         onClick={() => {
           setIsEditable(false);
-          props.setModalShow(false);
+          props.setmodalshow(false);
         }}
       >
         Save
