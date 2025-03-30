@@ -1,4 +1,4 @@
-# Notes App
+# Notes
 
 This is a simple Notes application built with **React**. The app allows users to create, edit, and delete notes, with data stored in the browser using **localForage** for local storage management. It is a great tool for organizing quick notes or reminders.
 
